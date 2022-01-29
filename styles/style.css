@@ -1,8 +1,45 @@
-/* 
-#game {
+@font-face {
+    font-family: 'get_schwiftyregular';
+    src: url('../images/get-schwifty.ttf');
+}
+
+* {
+    font-family: 'get_schwiftyregular';
+    color: #c1f762;
     background-color: black;
-    background-image: url("../images/background-game.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-} 
- */
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#start {
+    font-size: x-large;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
