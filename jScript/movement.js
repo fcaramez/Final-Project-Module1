@@ -23,7 +23,7 @@ class Movement {
                     }
                     break;
                 case 'ArrowDown':
-                    if (this.player.y + this.player.height < 520) {
+                    if (this.player.y + this.player.height < 530) {
                         this.player.y += 10
                     }
                     break;
