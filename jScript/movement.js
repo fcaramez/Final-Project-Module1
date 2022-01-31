@@ -18,7 +18,7 @@ class Movement {
                     }
                     break;
                 case 'ArrowRight':
-                    if (this.player.x + this.player.width < 980) {
+                    if (this.player.x + this.player.width < 1000) {
                         this.player.x += 10;
                     }
                     break;
