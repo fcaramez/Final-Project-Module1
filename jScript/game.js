@@ -25,6 +25,8 @@ class Game {
     update() {
         this.drawBackground();
         this.player.draw();
+        this.enemie = new Enemies(this, 100, 100)
+        this.enemie.drawEnemie1();
         this.frames += 0.3;
         this.getScore();
     }
@@ -38,6 +40,10 @@ class Game {
         clearInterval(this.intervalId);
     }
 
+    /* drawEnemie() {    
+
+    } */
+
     getScore() {
         let score = Math.floor(this.frames);
         this.ctx.font = '40px didot';
@@ -45,3 +51,5 @@ class Game {
         this.ctx.fillText(`Score: ${score}`, 0, 40);
     }
 }
+
+/* const enemiesFunction = [Enemies.drawEnemie1(), Enemies.drawEnemie2(), Enemies.drawEnemie3()] */
