@@ -7,24 +7,24 @@ class Movement {
     keyEvents() {
         window.addEventListener('keydown', (e) => {
             switch(e.code) {
-                case 'ArrowUp':
-                    if (this.player.y > 1) {
-                        this.player.y -= 10;
+                case 'KeyW':
+                    if (this.player.y > 0) {
+                        this.player.y -= 15;
                     }
                     break;
-                case 'ArrowLeft':
-                    if(this.player.x > 1) {
-                        this.player.x -= 10;
+                case 'KeyA':
+                    if(this.player.x > 0) {
+                        this.player.x -= 15;
                     }
                     break;
-                case 'ArrowRight':
+                case 'KeyD':
                     if (this.player.x + this.player.width < 1000) {
-                        this.player.x += 10;
+                        this.player.x += 15;
                     }
                     break;
-                case 'ArrowDown':
+                case 'KeyS':
                     if (this.player.y + this.player.height < 530) {
-                        this.player.y += 10
+                        this.player.y += 15;
                     }
                     break;
             }

@@ -3,7 +3,7 @@ class Game {
         this.canvas = document.getElementById('game');
         this.ctx = this.canvas.getContext('2d');
         this.player = null;
-        this.obstacles = [];
+        this.enemies = [];
         this.background = new Image();
         this.frames = 0;
         this.x = 0;
@@ -30,5 +30,12 @@ class Game {
     drawBackground() {
         this.background.src = './docs/assets/background-game.png';
         this.ctx.drawImage(this.background, this.x, this.y, this.canvasWidth, this.canvasHeight);
+    }
+
+    stopGame() {
+        clearInterval(this.intervalId);
+    }
+
+    printEnemie() {
     }
 }
