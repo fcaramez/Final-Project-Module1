@@ -9,7 +9,7 @@ class Player {
     }
 
     draw() {
-        this.img.src = '../docs/assets/Player-removebg-preview.png';
+        this.img.src = './docs/assets/Player-removebg-preview.png';
         this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 }
