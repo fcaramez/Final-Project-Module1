@@ -14,7 +14,7 @@ class Game {
     }
 
     start() {
-        this.player = new Player(this, 460, 200, 120, 100);
+        this.player = new Player(this, 460, 190, 120, 100);
         const movement = new Movement(this);
         movement.keyEvents();
         this.intervalId = setInterval(() => {
@@ -25,6 +25,8 @@ class Game {
     update() {
         this.drawBackground();
         this.player.draw();
+        this.frames += 0.3;
+        this.getScore();
     }
 
     drawBackground() {
@@ -36,6 +38,10 @@ class Game {
         clearInterval(this.intervalId);
     }
 
-    printEnemie() {
+    getScore() {
+        let score = Math.floor(this.frames);
+        this.ctx.font = '40px didot';
+        this.ctx.fillStyle = 'white';
+        this.ctx.fillText(`Score: ${score}`, 0, 40);
     }
 }
