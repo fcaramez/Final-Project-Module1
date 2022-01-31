@@ -28,7 +28,7 @@ class Game {
     }
 
     drawBackground() {
-        this.background.src = '../images/background-game.png';
+        this.background.src = '../docs/assets/background-game.png';
         this.ctx.drawImage(this.background, this.x, this.y, this.canvasWidth, this.canvasHeight);
     }
 }
