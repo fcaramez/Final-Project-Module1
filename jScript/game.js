@@ -6,16 +6,17 @@ class Game {
         this.enemies = [];
         this.background = new Image();
         this.frames = 0;
+        this.score = 0;
         this.x = 0;
         this.y = 0;
         this.canvasWidth = 980;
         this.canvasHeight = 520;
         this.intervalId = null; 
-        this.enemiesX = 0;
-        this.enemiesY = 0;
+        this.enemies = new Enemies(this)
     }
 
     start() {
+        console.log(this.frames);
         this.player = new Player(this, 460, 190, 120, 100);
         const movement = new Movement(this);
         movement.keyEvents();
@@ -27,16 +28,12 @@ class Game {
     update() {
         this.drawBackground();
         this.player.draw();
-        /* this.createEnemie();
-        this.enemies.forEach((enemie) => {
-            enemie.x++;
-            enemie.y++;
-            enemie.drawShow();
-            enemie.drawPoopie();
-            enemie.drawMeesteeks();
-        }) */
-        this.frames += 0.3;
+        this.enemies.drawEnemies();
+        console.log("draw")
+        this.frames += 3;
+        this.score++;
         this.getScore();
+        /* this.checkStopGame(); */
     }
 
     drawBackground() {
@@ -44,24 +41,28 @@ class Game {
         this.ctx.drawImage(this.background, this.x, this.y, this.canvasWidth, this.canvasHeight);
     }
 
+    /* checkStopGame() {
+        const player = this.player;
+        const crashed = this.enemies.some(function (enemy) {
+            return player.colision(enemy);
+        }); 
+         if (crashed) {
+        console.log(this.enemies)
+            this.stopGame();
+        }
+    } */
+
     stopGame() {
+        /* this.ctx.font = '90px didot';
+        this.ctx.fillStyle = "red";
+        this.ctx.fillText('GAME OVER', 200, 250)  */
         clearInterval(this.intervalId);
     }
 
-    createEnemie() {
-        if (this.frames % 300 === 0) {
-            this.enemies.push(new EnemieShow());
-            this.enemies.push(new EnemiePoopie());
-            this.enemies.push(new EnemieMeesteeks());
-
-        }
-    }
     getScore() {
-        let score = Math.floor(this.frames);
+        let score = Math.floor(this.score);
         this.ctx.font = '40px didot';
         this.ctx.fillStyle = 'white';
         this.ctx.fillText(`Score: ${score}`, 0, 40);
     }
 }
-
-/* const enemiesFunction = [Enemies.drawEnemie1(), Enemies.drawEnemie2(), Enemies.drawEnemie3()] */
