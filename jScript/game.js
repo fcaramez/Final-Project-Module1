@@ -11,6 +11,8 @@ class Game {
         this.canvasWidth = 980;
         this.canvasHeight = 520;
         this.intervalId = null; 
+        this.enemiesX = 0;
+        this.enemiesY = 0;
     }
 
     start() {
@@ -25,8 +27,14 @@ class Game {
     update() {
         this.drawBackground();
         this.player.draw();
-        this.enemie = new Enemies(this, 100, 100)
-        this.enemie.drawEnemie1();
+        /* this.createEnemie();
+        this.enemies.forEach((enemie) => {
+            enemie.x++;
+            enemie.y++;
+            enemie.drawShow();
+            enemie.drawPoopie();
+            enemie.drawMeesteeks();
+        }) */
         this.frames += 0.3;
         this.getScore();
     }
@@ -40,10 +48,14 @@ class Game {
         clearInterval(this.intervalId);
     }
 
-    /* drawEnemie() {    
+    createEnemie() {
+        if (this.frames % 300 === 0) {
+            this.enemies.push(new EnemieShow());
+            this.enemies.push(new EnemiePoopie());
+            this.enemies.push(new EnemieMeesteeks());
 
-    } */
-
+        }
+    }
     getScore() {
         let score = Math.floor(this.frames);
         this.ctx.font = '40px didot';
