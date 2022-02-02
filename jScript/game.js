@@ -15,9 +15,12 @@ class Game {
         this.showMe = [];
         this.poopie = [];
         this.jerry = [];
+        this.musicBackground = new Audio('../sounds/Get Schwifty Music Video   Rick and Morty  Adult Swim.mp3'); 
+        this.musicGameOver = new Audio('../sounds/Morty, you fucking idiot-[AudioTrimmer.com].mp3')
     }
 
     start() {
+        this.musicBackground.play();
         console.log(this.frames);
         this.player = new Player(this, 460, 190, 60, 40);
         const movement = new Movement(this);
@@ -60,9 +63,11 @@ class Game {
     }
 
     stopGame() {
+        this.musicBackground.pause();
         this.ctx.font = '90px didot';
         this.ctx.fillStyle = "red";
-        this.ctx.fillText('GAME OVER', 200, 250) 
+        this.ctx.fillText('GAME OVER', 200, 250);
+        this.musicGameOver.play();
         clearInterval(this.intervalId);
     }
 
