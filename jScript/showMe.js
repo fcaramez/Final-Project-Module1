@@ -4,6 +4,8 @@ class ShowMe {
         this.x = Math.floor(Math.random() * 950);
         this.y = 0;
         this.showMe = new Image();
+        this.width = 60;
+        this.height = 40;
     }
 
     drawShowMe() {

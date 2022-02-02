@@ -4,6 +4,8 @@ class Meesteeks {
         this.x = 0;
         this.y = Math.floor(Math.random() * 490);
         this.meesteeks = new Image();
+        this.width = 60;
+        this.height = 60;
     }
 
     drawMeesteeks() {

@@ -76,16 +76,23 @@ class Game {
     checkGameOver() {
         const player = this.player;
         const crashedMeesteeks = this.meesteeks.some(function (meesteeks) {
+            console.log(player.colision(meesteeks))
             return player.colision(meesteeks);
         });
         const crashedShowMe = this.showMe.some(function (showMe) {
+            console.log(player.colision(showMe))
+
             return player.colision(showMe);
         });
         const crashedPoopie = this.poopie.some(function (poopie) {
-            return player.colision(poopie)
+            console.log(player.colision(poopie))
+
+            return player.colision(poopie);
         });
 
         if (crashedMeesteeks || crashedPoopie || crashedShowMe) {
+            console.log(this.meesteeks, this.crashedPoopie, this.showMe)
+            console.log(crashedMeesteeks, crashedPoopie, crashedShowMe)
             this.stopGame();
         }
     }

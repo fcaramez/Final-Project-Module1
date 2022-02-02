@@ -4,6 +4,8 @@ class Poopie {
         this.x = Math.floor(Math.random() * 460);
         this.y = 0;
         this.poopie = new Image();
+        this.width = 60;
+        this.height = 60;
     }
 
     drawPoopie() {
