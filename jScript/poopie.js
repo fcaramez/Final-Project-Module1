@@ -17,16 +17,16 @@ class Poopie {
 
     left() {
         return this.x;
-      }
-      right() {
+    }
+    right() {
         return this.x + this.width;
-      }
+    }
     
-      top() {
+    top() {
         return this.y;
-      }
+    }
     
-      bottom() {
+    bottom() {
         return this.y + this.height;
-      }
+    }
 }

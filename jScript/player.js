@@ -8,7 +8,6 @@ class Player {
         this.img = new Image();
     }
 
-    
     left() {
         return this.x;
     }

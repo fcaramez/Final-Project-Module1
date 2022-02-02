@@ -15,8 +15,10 @@ class Game {
         this.showMe = [];
         this.poopie = [];
         this.jerry = [];
+        this.scoreUp = [];
         this.musicBackground = new Audio('../sounds/Get Schwifty Music Video   Rick and Morty  Adult Swim.mp3'); 
-        this.musicGameOver = new Audio('../sounds/Morty, you fucking idiot-[AudioTrimmer.com].mp3')
+        this.musicGameOver = new Audio('../sounds/Morty, you fucking idiot-[AudioTrimmer.com]-[AudioTrimmer.com].mp3');
+        this.scoreUpSound = new Audio('../sounds/Rick and Morty (Wubba Lubba Dub Dub) Sound Effect.mp3');
     }
 
     start() {
@@ -43,6 +45,10 @@ class Game {
         this.poopie.forEach((enemie) => {
             enemie.drawPoopie();
         });
+        this.drawPowerUp();
+        this.scoreUp.forEach((scoreUp) => {
+            scoreUp.drawPowerUp();
+        })
         this.frames += 3;
         this.score++;
         this.getScore();
@@ -59,6 +65,12 @@ class Game {
             this.meesteeks.push(new Meesteeks(this));
             this.showMe.push(new ShowMe(this));
             this.poopie.push(new Poopie(this));
+        }
+    }
+
+    drawPowerUp() {
+        if (this.frames % 1200 === 0) {
+            this.scoreUp.push(new ScoreUp(this));
         }
     }
 
@@ -81,24 +93,27 @@ class Game {
     checkGameOver() {
         const player = this.player;
         const crashedMeesteeks = this.meesteeks.some(function (meesteeks) {
-            console.log(player.colision(meesteeks))
             return player.colision(meesteeks);
         });
         const crashedShowMe = this.showMe.some(function (showMe) {
-            console.log(player.colision(showMe))
-
             return player.colision(showMe);
         });
         const crashedPoopie = this.poopie.some(function (poopie) {
-            console.log(player.colision(poopie))
-
             return player.colision(poopie);
         });
 
         if (crashedMeesteeks || crashedPoopie || crashedShowMe) {
-            console.log(this.meesteeks, this.crashedPoopie, this.showMe)
-            console.log(crashedMeesteeks, crashedPoopie, crashedShowMe)
             this.stopGame();
+        } 
+    }
+
+    checkPowerUp() {
+        const player = this.player;
+        const crashedPowerUp = this.scoreUp.some(function (powerUp) {
+            return player.colision(powerUp)
+        })
+        if (crashedPowerUp) {
+            this.score + 100;
         }
     }
 }
