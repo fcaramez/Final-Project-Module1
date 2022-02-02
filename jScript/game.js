@@ -3,7 +3,6 @@ class Game {
         this.canvas = document.getElementById('game');
         this.ctx = this.canvas.getContext('2d');
         this.player = null;
-        this.enemies = [];
         this.background = new Image();
         this.frames = 0;
         this.score = 0;
@@ -12,12 +11,15 @@ class Game {
         this.canvasWidth = 980;
         this.canvasHeight = 520;
         this.intervalId = null; 
-        this.enemies = new Enemies(this)
+        this.meesteeks = [];
+        this.showMe = [];
+        this.poopie = [];
+        this.jerry = [];
     }
 
     start() {
         console.log(this.frames);
-        this.player = new Player(this, 460, 190, 120, 100);
+        this.player = new Player(this, 460, 190, 60, 40);
         const movement = new Movement(this);
         movement.keyEvents();
         this.intervalId = setInterval(() => {
@@ -28,12 +30,20 @@ class Game {
     update() {
         this.drawBackground();
         this.player.draw();
-        this.enemies.drawEnemies();
-        console.log("draw")
+        this.drawEnemie();
+        this.meesteeks.forEach((enemie) => {
+            enemie.drawMeesteeks();
+        });
+        this.showMe.forEach((enemie) => {
+            enemie.drawShowMe();
+        });
+        this.poopie.forEach((enemie) => {
+            enemie.drawPoopie();
+        });
         this.frames += 3;
         this.score++;
         this.getScore();
-        /* this.checkStopGame(); */
+        this.checkGameOver();
     }
 
     drawBackground() {
@@ -41,21 +51,18 @@ class Game {
         this.ctx.drawImage(this.background, this.x, this.y, this.canvasWidth, this.canvasHeight);
     }
 
-    /* checkStopGame() {
-        const player = this.player;
-        const crashed = this.enemies.some(function (enemy) {
-            return player.colision(enemy);
-        }); 
-         if (crashed) {
-        console.log(this.enemies)
-            this.stopGame();
+    drawEnemie() {
+        if (this.frames % 600 === 0) {
+            this.meesteeks.push(new Meesteeks(this));
+            this.showMe.push(new ShowMe(this));
+            this.poopie.push(new Poopie(this));
         }
-    } */
+    }
 
     stopGame() {
-        /* this.ctx.font = '90px didot';
+        this.ctx.font = '90px didot';
         this.ctx.fillStyle = "red";
-        this.ctx.fillText('GAME OVER', 200, 250)  */
+        this.ctx.fillText('GAME OVER', 200, 250) 
         clearInterval(this.intervalId);
     }
 
@@ -64,5 +71,22 @@ class Game {
         this.ctx.font = '40px didot';
         this.ctx.fillStyle = 'white';
         this.ctx.fillText(`Score: ${score}`, 0, 40);
+    }
+
+    checkGameOver() {
+        const player = this.player;
+        const crashedMeesteeks = this.meesteeks.some(function (meesteeks) {
+            return player.colision(meesteeks);
+        });
+        const crashedShowMe = this.showMe.some(function (showMe) {
+            return player.colision(showMe);
+        });
+        const crashedPoopie = this.poopie.some(function (poopie) {
+            return player.colision(poopie)
+        });
+
+        if (crashedMeesteeks || crashedPoopie || crashedShowMe) {
+            this.stopGame();
+        }
     }
 }
