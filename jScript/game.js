@@ -53,6 +53,7 @@ class Game {
         this.score++;
         this.getScore();
         this.checkGameOver();
+        this.checkPowerUp();
     }
 
     drawBackground() {
@@ -113,7 +114,11 @@ class Game {
             return player.colision(powerUp)
         })
         if (crashedPowerUp) {
-            this.score + 100;
+            this.scoreUpSound.play();
+            this.score += 100;
+            this.scoreUp = [];
+        } else if (this.frames % 1400 === 0) {
+            this.scoreUp = [];
         }
     }
 }
