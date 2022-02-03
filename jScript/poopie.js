@@ -9,7 +9,7 @@ class Poopie {
     }
 
     drawPoopie() {
-        this.poopie.src = '../docs/assets/Enemy3.png';
+        this.poopie.src = './docs/assets/Enemy3.png';
         this.game.ctx.drawImage(this.poopie, this.x, this.y, 60, 60);
         this.x++;
         this.y++;

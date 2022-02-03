@@ -9,7 +9,7 @@ class ShowMe {
     }
 
     drawShowMe() {
-        this.showMe.src = '../docs/assets/Enemy1.png';
+        this.showMe.src = './docs/assets/Enemy1.png';
         this.game.ctx.drawImage(this.showMe, this.x, this.y, 60, 40);
         this.y += 2;
     }

@@ -7,7 +7,7 @@ class ScoreUp {
     }
 
     drawPowerUp() {
-        this.powerUp.src = '../docs/assets/powerUp-removebg-preview.png';
+        this.powerUp.src = './docs/assets/powerUp-removebg-preview.png';
         this.game.ctx.drawImage(this.powerUp, this.x, this.y, 80, 80);
     }
 

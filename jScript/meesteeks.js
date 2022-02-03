@@ -9,7 +9,7 @@ class Meesteeks {
     }
 
     drawMeesteeks() {
-        this.meesteeks.src = "../docs/assets/Enemy2.png";
+        this.meesteeks.src = "./docs/assets/Enemy2.png";
         this.game.ctx.drawImage(this.meesteeks, this.x, this.y, 60, 60);
         this.x += 2;
     }
