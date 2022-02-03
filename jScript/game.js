@@ -17,7 +17,7 @@ class Game {
     this.jerry = [];
     this.scoreUp = [];
     this.musicBackground = new Audio(
-      "./docs/assets/sounds/Get Schwifty Music Video   Rick and Morty  Adult Swim.mp3"
+      "./docs/assets/sounds/Get Schwifty Music Video   Rick and Morty  Adult Swim-[AudioTrimmer.com].mp3"
     );
     this.musicGameOver = new Audio(
       "./docs/assets/sounds/Morty, you fucking idiot-[AudioTrimmer.com]-[AudioTrimmer.com].mp3"
