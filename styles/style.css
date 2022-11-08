@@ -1,47 +1,45 @@
 @font-face {
-    font-family: 'get_schwiftyregular';
-    src: url('../font/get-schwifty.ttf');
-    
+  font-family: "get_schwiftyregular";
+  src: url("../font/get-schwifty.ttf");
 }
 
 * {
-    font-family: 'get_schwiftyregular';
-    color: #c1f762;
-    background-color: black;
+  font-family: "get_schwiftyregular";
+  color: #c1f762;
+  background-color: black;
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .canvas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #start {
-    font-size: x-large;
-    border-color: #c1f762;
+  font-size: x-large;
+  border-color: #c1f762;
 }
 
 .info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
